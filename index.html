@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Page with Menu</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .container-fluid {
+            padding-left: 0;
+            padding-right: 0;
+            position: relative;
+            /* Added to make the navbar positioned relative to the container */
+            overflow-y: hidden;
+            overflow-x: hidden;
+        }
+
+        .content {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .content img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        .navbar {
+            position: absolute;
+            /* Added to position the navbar absolutely */
+            top: 0;
+            width: 30%;
+            z-index: 1;
+            transition: background-color 0.5s ease;
+            /* Added to ensure the navbar is above the image */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-xxl ">
+            <button class="navbar-toggler navbar-dark bg-dark" id="king" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="changeTask(1)">CORP</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="changeTask(5)">HPHF ONCO</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="changeTask(8)">HP CP</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="changeTask(12)">HP SURG</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="changeTask(16)">GRO PI</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="changeTask(18)">MAX ADV</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="changeTask(21)">VID</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="changeTask(16)">GRO PI</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="changeTask(24)">MAX CP</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="changeTask(26)">GRO PED</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="changeTask(28)">VIDS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="changeTask(32)">VIVA GYN</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="changeTask(34)">GRP PEAD</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="changeTask(39)">VIVSF GYN</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="row">
+            <div id="task" class="col content">
+                <img id="taskImage" src="images/Corporate_Pages1.gif" alt="Task 1 Image" class="img-fluid"
+                    ondragstart="return false;">
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery-3.5.1.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+        $("#king").on("click", function() {
+            // Toggle navbar-dark bg-dark class on navbar
+            $(".navbar").toggleClass('navbar-dark bg-dark');
+        });
+    </script>
+    <script>
+        let currentTask = 1;
+        const fileNames = [
+    "Corporate_Pages1.gif",
+    "Corporate_Pages2.gif",
+    "Corporate_Pages3.jpg",
+    "Corporate_Pages4.jpg",
+    "Maxvida_HPHF1.jpg",
+    "Maxvida_HPHF2.gif",
+    "Maxvida_HPHF3.gif",
+    "Maxvida_HP1.jpg",
+    "Maxvida_HP2.gif",
+    "Maxvida_HP3.jpg",
+    "Maxvida_HP4.jpg",
+    "Maxvida_SURG_HP1.jpg",
+    "Maxvida_SURG_HP2.gif",
+    "Maxvida_SURG_HP3.jpg",
+    "Maxvida_SURG_HP4.jpg",
+    "Groviva_ADV1.jpg",
+    "Groviva_ADV2.gif",
+    "Maxvida_ADV1.jpg",
+    "Maxvida_ADV2.gif",
+    "Maxvida_ADV3.gif",
+    "Vidavance1.jpg",
+    "Vidavance2.gif",
+    "Vidavance3.gif",
+    "Maxvida_CP1.jpg",
+    "Maxvida_CP2.gif",
+    "Groviva_Lite1.jpg",
+    "Groviva_Lite2.gif",
+    "Vidaslim1.jpg",
+    "Vidaslim2.gif",
+    "Vidaslim3.gif",
+    "Vidaslim4.jpg",
+    "Vivamom1.jpg",
+    "Vivamom2.gif",
+    "Groviva1.jpg",
+    "Groviva2.jpg",
+    "Groviva3.gif",
+    "Groviva4.gif",
+    "Groviva5.gif",
+    "Vivamom_SF1.jpg",
+    "Vivamom_SF2.gif",
+    "Vivamom_SF3.gif",
+    "Vivamom_SF4.gif"
+];
+
+        const taskImage = document.getElementById("taskImage");
+        const navbar = document.querySelector('.navbar');
+
+        function changeTask(taskNumber) {
+            // Show new task
+            taskImage.src = `images/${fileNames[taskNumber - 1]}`;
+            currentTask = taskNumber;
+        }
+
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        // Listener for touch start event
+        taskImage.addEventListener("touchstart", function (event) {
+            touchStartX = event.touches[0].clientX;
+        });
+
+        // Listener for touch end event
+        taskImage.addEventListener("touchend", function (event) {
+            touchEndX = event.changedTouches[0].clientX;
+            handleSwipe();
+        });
+
+        // Function to handle swipe gesture
+        function handleSwipe() {
+            const swipeThreshold = 50; // Adjust this value as needed
+            const deltaX = touchEndX - touchStartX;
+
+            if (deltaX > swipeThreshold) {
+                // Swiped right, go to previous image
+                if (currentTask > 1) {
+                    changeTask(currentTask - 1);
+                }
+            } else if (deltaX < -swipeThreshold) {
+                // Swiped left, go to next image
+                if (currentTask < fileNames.length) {
+                    changeTask(currentTask + 1);
+                }
+            }
+        }
+
+        
+
+    </script>
+</body>
+
+</html>
